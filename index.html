@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- ALL THE HTML -->
+    <template>
+        <div id="app">
+            <div v-for="(item, index) in clouds" class="cloud" :id="'cloud-' + index" :style="makeStarStyles(index)">
+            </div>
+            <!--<button class="testbtn" @click="changeDisplay">Fire!</button> -->
+            <div id="holoLoader" :class="displayMode ? 'active' : 'notActive'">
+                <div class="holoLayer" id="core"><canvas id="coreCanvas" /></div>
+                <div class="holoLayer" id="firstCircle">
+                    <canvas width="450" height="450" id="secondCanvas" />
+                </div>
+                <div class="holoLayer" id="secondCircle">
+                    <div class="slider a">
+                        <div class="sliderPoint a">
+                            <!-- <div v-for="item in sparks" class="spark" /> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="holoLayer" id="thirdCircle"></div>
+                <div class="holoLayer" id="fourthCircle"></div>
+                <div class="holoLayer" id="fifthCircle">
+                    <canvas id="firstCanvas" />
+                </div>
+                <div class="holoLayer" id="sixthCircle"></div>
+            </div>
+            <canvas width="470" height="200" id="shootingParticles" :class="displayMode ? 'active' : 'notActive'" />
+        </div>
+    </template>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
